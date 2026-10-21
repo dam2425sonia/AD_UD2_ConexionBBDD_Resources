@@ -7,21 +7,23 @@ import java.util.Properties;
 import java.io.InputStream;
 
 public class Conexion {
-
+    // Método principal para probar la conexión a la base de datos  
     public static void main(String[] args) {
-
+        // Crear un objeto Properties para cargar la configuración de la base de datos
         Properties props = new Properties();
 
         // Cargar configuración desde db.properties en el classpath
+        // Usamos try-with-resources para asegurar que el InputStream se cierre automáticamente
         try (InputStream input = Conexion.class.getClassLoader().getResourceAsStream("db.properties")) {
-
+            // Verificar si el archivo db.properties se encontró en el classpath
             if (input == null) {
                 System.out.println("⚠️ No se encontró el fichero db.properties en el classpath.");
                 return;
             }
-
+            
+            // Cargar las propiedades desde el archivo
             props.load(input);
-
+            // Obtener los valores de las propiedades
             String url = props.getProperty("db.url");
             String usuario = props.getProperty("db.user");
             String contrasena = props.getProperty("db.password");
