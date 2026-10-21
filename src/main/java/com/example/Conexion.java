@@ -17,7 +17,7 @@ public class Conexion {
         try (InputStream input = Conexion.class.getClassLoader().getResourceAsStream("db.properties")) {
             // Verificar si el archivo db.properties se encontró en el classpath
             if (input == null) {
-                System.out.println("⚠️ No se encontró el fichero db.properties en el classpath.");
+                System.out.println("No se encontró el fichero db.properties en el classpath.");
                 return;
             }
             
@@ -30,13 +30,13 @@ public class Conexion {
 
             // Conexión a MySQL usando try-with-resources
             try (Connection conn = DriverManager.getConnection(url, usuario, contrasena)) {
-                System.out.println("✅ Conexión realizada correctamente.");
+                System.out.println("Conexión realizada correctamente.");
             } catch (SQLException e) {
-                System.out.println("❌ Error al conectar con la base de datos: " + e.getMessage());
+                System.out.println("Error al conectar con la base de datos: " + e.getMessage());
             }
 
         } catch (Exception e) {
-            System.out.println("⚠️ Error al cargar configuración: " + e.getMessage());
+            System.out.println("Error al cargar configuración: " + e.getMessage());
         }
     }
 }
