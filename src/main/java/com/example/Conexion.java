@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.io.InputStream;
 
+
 public class Conexion {
     // Método principal para probar la conexión a la base de datos  
     public static void main(String[] args) {
